@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 
 app.get('/', (req, res) => {
-  res.send('Hello from jenkins, added webhook, deployed sucessfully');
+  res.send('node app with github webhook deployed sucessfully');
 });
 
 app.listen(port, () => {

@@ -6,7 +6,7 @@ This guide delivers a comprehensive, step-by-step methodology for deploying a No
 
 ##  Project Overview
 
-We use:
+Infrastructure Components:
 
 * **Jenkins Server**: Runs the Jenkins job and orchestrates the deployment.
 * **App Server**: Remote server where the Node.js app is deployed and run.
@@ -60,13 +60,6 @@ sudo apt install -y nodejs
 sudo npm install -g pm2
 ```
 
-**Jenkins-server-setup**:
-![](/nodejs-app-img/jenkins-server-setup.png)
-
-**Node-app-server-setup**
-![](/nodejs-app-img/node-app-server-setup.png)
-
-
 ##  Security Group / Firewall Rules
 
 Open these ports in your **cloud security group** (or firewall):
@@ -96,7 +89,7 @@ scp -i pem-key-server.pem pem-key-server.pem ubuntu@<JENKINS_SERVER_PUBLIC_IP>:/
 ### Step 2 — Add PEM Key to Jenkins Credentials
 
 1. Under **Stores scoped to Jenkins**, click **(global)** → **Add Credentials**.
-   ![](/nodejs-app-img/credentials-1.png)
+   
 2. Fill in:
 
    * **Kind**: SSH Username with private key
@@ -105,7 +98,7 @@ scp -i pem-key-server.pem pem-key-server.pem ubuntu@<JENKINS_SERVER_PUBLIC_IP>:/
    * **Host**: Enter the public IP of your app server (e.g., `98.81.210.251`)
    * **ID**: `nodejs-app-credentials`
 3. Save.
-![](/nodejs-app-img/credentials-2.png)
+
 
 ---
 
